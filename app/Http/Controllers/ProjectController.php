@@ -5,23 +5,43 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Leader;
 use App\Models\Project;
-use Illuminate\Console\View\Components\Alert;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 
 class ProjectController extends Controller
 {
+    private $key;
+
+    public function search($keyword)
+    {
+        $this->key = $keyword;
+        $projects = Project::whereHas('client', function (Builder $query) {
+            $keyword = $this->key;
+            $query->where('project_name', 'LIKE', '%' . $keyword . '%')->orWhere('start_date', 'LIKE', '%' . $keyword . '%')->orWhere('end_date', 'LIKE', '%' . $keyword . '%')->orWhere('client_name', 'LIKE', '%' . $keyword . '%');
+        })->orWhereHas(
+            'leader',
+            function (Builder $query) {
+                $keyword = $this->key;
+                $query->where('leader_name', 'LIKE', '%' . $keyword . '%');
+            }
+        )->paginate(10);
+        return view('projects.index', compact('projects'));
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->search;
+        if (!empty($keyword)) {
+            return $this->search($keyword);
+        }
         $projects = Project::paginate(10);
         return view('projects.index', compact('projects'));
     }
-
     /**
      * Show the form for creating a new resource.
      *

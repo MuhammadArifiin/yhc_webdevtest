@@ -22,9 +22,15 @@
                         <a href="{{ URL::to('/') }}" class="navbar-brand">Navbar</a>
                         <a href="{{ URL::to('projects') }}" class="nav-link">Projects</a>
                     </div>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form action="{{ URL::to('projects') }}" method="GET" role="search"
+                        class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="search" name="search" placeholder="Cari...">
+                            <button type="submit" class="btn btn-secondary">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                            </span>
+                        </div>
                     </form>
                 </div>
             </nav>
