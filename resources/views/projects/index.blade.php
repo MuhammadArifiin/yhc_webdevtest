@@ -30,7 +30,7 @@
                             <td>{{ $p->leader->leader_name }}</td>
                             <td>{{ $p->start_date }}</td>
                             <td>{{ $p->end_date }}</td>
-                            <td>{{ $p->progress }}</td>
+                            <td>{{ $p->progress }}%</td>
                             <td>
                                 <a href="{{ route('projects.show', $p->id) }}"
                                     class="btn btn-success m-1 btn-icon-split" style="">
