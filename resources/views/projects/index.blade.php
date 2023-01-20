@@ -3,10 +3,10 @@
 @section('content')
 <div class="bg-light p-5 rounded">
     <div class="container">
-        <h3 class="text-center">Create Project</h3>
+        <h3 class="text-center">Data Project</h3>
         <div class="card mt-3">
             <div class="card-body">
-                <a href="{{ URL::to('projects') }}" class="btn btn-primary mb-2 text-white">+ Create</a>
+                <a href="{{ URL::to('projects/create') }}" class="btn btn-primary mb-2 text-white">+ Create</a>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
