@@ -16,8 +16,8 @@ Aplikasi ini dibuat menggunakan bahasa pemrograman PHP versi 8.1.13 dengan frame
 ```DB_USERNAME```, dan ```DB_PASSWORD``` yang ada di file .env pastikan sesuai dengan konfigurasi localhost anda
 6. Jalankan perintah ```php artisan migrate``` dan ```php artisan db:seed``` untuk melakukan migrasi dan seeding database 
 7. Jalankan perintah ```php artisan serve``` untuk menjalankan server
-8. Silakan daftarkan pengguna melalui fitur register/sign-up
 
 ## Hasil Pengujian
 
 Berikut adalah hasil pengujian terhadap soal yang diberikan :
+https://docs.google.com/document/d/10qcqiLVWic0atab2cdg_FjWUIPmbckfEb4k7mVuV2QM/edit?usp=sharing
